@@ -1,14 +1,12 @@
-let c;
-
 function sum(a) {
-    let accum = a;
-    function closeSum(b) {
-        accum += b;
-        c = accum;
-        return closeSum;
+    function func(b) {
+            if (Number.isFinite(b)) {
+                return sum(a + b);
+            } else {
+                return a;
+            }
     }
-    return closeSum;
+    return func;
 }
 
-sum(1)(2)(3);
-console.log(c);
+console.log(sum(1)(2)(3)());
